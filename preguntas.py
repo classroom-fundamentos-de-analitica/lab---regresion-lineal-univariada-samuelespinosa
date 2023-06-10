@@ -55,7 +55,7 @@ def pregunta_02():
     print('{:.4f}'.format(df['life'].mean()))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    print(df['fertility'].dtype)
+    print(typeof(df['fertility']))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
     print('{:.4f}'.format(df['GDP'].corr(df['life'])))
@@ -76,7 +76,7 @@ def pregunta_03():
     y_life =df['life'] 
 
     # Importe LinearRegression
-    from sklearn.linear_model import LinearRegresion 
+    from sklearn.linear_model import LinearRegression 
 
     # Cree una instancia del modelo de regresión lineal
     reg = LinearRegresion()
