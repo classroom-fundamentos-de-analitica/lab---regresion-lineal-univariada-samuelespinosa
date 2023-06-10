@@ -114,10 +114,10 @@ def pregunta_04():
     # Lea el archivo `gm_2008_region.csv` y asignelo al DataFrame `df`
     df =pd.read_csv('gm_2008_region.csv') 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility =df['fertility'] 
+    X_fertility =df['fertility'].values.reshape(-1,1) 
 
     # Asigne a la variable los valores de la columna `life`
-    y_life =df['life'] 
+    y_life =df['life'].values.reshape(-1,1) 
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
@@ -126,7 +126,7 @@ def pregunta_04():
         y_life,
         test_size=20,
         random_state=53,
-    ).values.reshape(-1,1)
+    )
 
     # Cree una instancia del modelo de regresión lineal
     linearRegression = LinearRegression()
