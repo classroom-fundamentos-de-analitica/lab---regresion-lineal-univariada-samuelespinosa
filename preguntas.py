@@ -124,7 +124,7 @@ def pregunta_04():
     (X_train, X_test, y_train, y_test,) = train_test_split(
         X_fertility,
         y_life,
-        test_size=20,
+        test_size=0.2,
         random_state=53,
     )
 
@@ -141,3 +141,5 @@ def pregunta_04():
     print("R^2: {:6.4f}".format(linearRegression.score(X_test, y_test)))
     rmse = np.sqrt(mean_squared_error(y_test,y_pred))
     print("Root Mean Squared Error: {:6.4f}".format(rmse))
+
+pregunta_04()
