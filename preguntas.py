@@ -70,10 +70,10 @@ def pregunta_03():
     df =pd.read_csv('gm_2008_region.csv') 
 
     # Asigne a la variable los valores de la columna `fertility`
-    X_fertility = df['fertility']
+    X_fertility = df['fertility'].values.reshape(-1,1)
 
     # Asigne a la variable los valores de la columna `life`
-    y_life =df['life'] 
+    y_life =df['life'].values.reshape(-1,1) 
 
     # Importe LinearRegression
     from sklearn.linear_model import LinearRegression 
@@ -88,7 +88,7 @@ def pregunta_03():
     ).reshape(-1,1)
 
     # Entrene el modelo usando X_fertility y y_life
-    reg.fit(X_fertility.values.reshape(-1,1),y_life.values.reshape(-1,1))
+    reg.fit(X_fertility,y_life)
 
     # Compute las predicciones para el espacio de predicción
     y_pred = reg.predict(prediction_space)
@@ -126,16 +126,16 @@ def pregunta_04():
         y_life,
         test_size=20,
         random_state=53,
-    )
+    ).values.reshape(-1,1)
 
     # Cree una instancia del modelo de regresión lineal
     linearRegression = LinearRegression()
 
     # Entrene el clasificador usando X_train y y_train
-    linearRegression.fit(X_train.values.reshape(-1,1), y_train.values.reshape(-1,1))
+    linearRegression.fit(X_train, y_train)
 
     # Pronostique y_test usando X_test
-    y_pred = linearRegression.predict(X_test.values.reshape(-1,1))
+    y_pred = linearRegression.predict(X_test)
 
     # Compute and print R^2 and RMSE
     print("R^2: {:6.4f}".format(linearRegression.score(X_test, y_test)))
