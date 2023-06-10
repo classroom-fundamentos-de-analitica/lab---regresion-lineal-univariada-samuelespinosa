@@ -55,7 +55,7 @@ def pregunta_02():
     print('{:.4f}'.format(df['life'].mean()))
 
     # Imprima el tipo de dato de la columna `fertility`.
-    print(typeof(df['fertility']))
+    print(type(df['fertility']))
 
     # Imprima la correlación entre las columnas `GDP` y `life` con 4 decimales.
     print('{:.4f}'.format(df['GDP'].corr(df['life'])))
@@ -79,7 +79,7 @@ def pregunta_03():
     from sklearn.linear_model import LinearRegression 
 
     # Cree una instancia del modelo de regresión lineal
-    reg = LinearRegresion()
+    reg = LinearRegression()
     # Cree El espacio de predicción. Esto es, use linspace para crear
     # un vector con valores entre el máximo y el mínimo de X_fertility
     prediction_space = np.linspace(
@@ -126,7 +126,7 @@ def pregunta_04():
         y_life,
         test_size=20,
         random_state=53,
-    )
+    ).reshape(-1,1)
 
     # Cree una instancia del modelo de regresión lineal
     linearRegression = LinearRegression()
